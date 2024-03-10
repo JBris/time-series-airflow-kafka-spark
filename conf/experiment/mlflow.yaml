@@ -1,0 +1,3 @@
+_target_: taks.DataModels.ExperimentModel
+name: taks
+tracking_uri: http://localhost:5000

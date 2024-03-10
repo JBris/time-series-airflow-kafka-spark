@@ -1,0 +1,6 @@
+_target_: taks.DataModels.InputDataModel
+name: airline
+base_path: data
+filename: airline.csv
+index_col: Period
+delay: 0.5

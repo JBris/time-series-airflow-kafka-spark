@@ -2,6 +2,22 @@ version: "3.9"
 
 services:
 
+  producer:
+    image: $GITHUB_CONTAINER_REPO
+    container_name: ${PROJECT_NAME}-producer
+    hostname: producer
+    restart: always
+    stop_grace_period: 10s
+    environment:
+      KAFKA_BOOTSTRAP_HOST: kafka:9092
+    volumes:
+      - ./conf:/workspace/conf
+      - ./data:/workspace/data:r
+      - ./taks:/workspace/taks:rwx
+    command: python -m taks.send_stream
+    depends_on:
+      - kafka
+
   mlflow:
     image: $GITHUB_CONTAINER_REPO
     container_name: ${PROJECT_NAME}-mlflow
@@ -22,17 +38,19 @@ services:
       BENTOML_CONFIG: $BENTOML_CONFIG
       BENTOML_BUCKET: s3://bento
       SPARK_MASTER_URL: sc://spark:7077
+      KAFKA_BOOTSTRAP_HOST: kafka:9092
     ports:
       - 5000:5000
       - 3001:3000
     volumes:
       - mlflow-prometheus-data:/prometheus
-      - ./taks:/workspace/taks:rwx
-      - ./conf:/workspace/conf:rw
-      - ./models:/workspace/models:rw
       - ./bentoml_configuration.yaml:${BENTOML_CONFIG}:rw
       - ./bento:${BENTOML_HOME}
+      - ./conf:/workspace/conf
+      - ./data:/workspace/data:r
+      - ./models:/workspace/models:rw
       - ./outdir:/workspace/outdir
+      - ./taks:/workspace/taks:rwx
     command: >
       mlflow server --serve-artifacts --host 0.0.0.0 --port 5000  
       --backend-store-uri "${MLFLOW_BACKEND_STORE_URI}" 
@@ -121,7 +139,7 @@ services:
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:32181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: true
     ports:
