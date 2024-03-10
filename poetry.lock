@@ -2492,6 +2492,22 @@ files = [
 protobuf = ["grpcio-tools (>=1.62.1)"]
 
 [[package]]
+name = "grpcio-status"
+version = "1.62.1"
+description = "Status proto mapping for gRPC"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "grpcio-status-1.62.1.tar.gz", hash = "sha256:3431c8abbab0054912c41df5c72f03ddf3b7a67be8a287bb3c18a3456f96ff77"},
+    {file = "grpcio_status-1.62.1-py3-none-any.whl", hash = "sha256:af0c3ab85da31669f21749e8d53d669c061ebc6ce5637be49a46edcb7aa8ab17"},
+]
+
+[package.dependencies]
+googleapis-common-protos = ">=1.5.5"
+grpcio = ">=1.62.1"
+protobuf = ">=4.21.6"
+
+[[package]]
 name = "gunicorn"
 version = "21.2.0"
 description = "WSGI HTTP Server for UNIX"
@@ -6044,4 +6060,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">3.10,<3.11"
-content-hash = "a76a2cb9284dae8aaf58e43b5b8c9effbf38457558921c6282a3da23427da01d"
+content-hash = "ecabf9770c1a7c3f054e0c473924a3baeebb1a7f3b145b0f45c7eedebba09f4c"
