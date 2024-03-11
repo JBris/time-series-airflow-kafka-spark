@@ -1,5 +1,45 @@
-version: "3.9"
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
 
+x-airflow-common:
+  &airflow-common
+  image: $GITHUB_CONTAINER_REPO
+  environment:
+    &airflow-common-env
+    AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: $DB_CONNECTION_STRING
+    AIRFLOW__CELERY__RESULT_BACKEND: DB_CONNECTION_STRING
+    AIRFLOW__CELERY__BROKER_URL: redis://redis:6379/0
+    AIRFLOW__CORE__FERNET_KEY: ''
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
+    AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
+    AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: 'false'
+    _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
+  volumes:
+    - ${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags
+    - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
+    - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
+    - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
+  user: "${AIRFLOW_UID:-50000}:0"
+  # depends_on:
+  #   &airflow-common-depends-on
+
+version: "3.9"
 services:
 
   producer:
@@ -29,7 +69,7 @@ services:
       args:
         PYTHON_TAG: $PYTHON_TAG
     environment:
-      MLFLOW_BACKEND_STORE_URI: $MLFLOW_BACKEND_STORE_URI
+      MLFLOW_BACKEND_STORE_URI: $DB_CONNECTION_STRING
       MLFLOW_S3_ENDPOINT_URL: http://minio:9000
       AWS_ACCESS_KEY_ID: $DB_USER
       AWS_SECRET_ACCESS_KEY: $DB_PASSWORD
@@ -54,7 +94,7 @@ services:
       - ./aks:/workspace/aks:rwx
     command: >
       mlflow server --serve-artifacts --host 0.0.0.0 --port 5000  
-      --backend-store-uri "${MLFLOW_BACKEND_STORE_URI}" 
+      --backend-store-uri "${DB_CONNECTION_STRING}" 
       --default-artifact-root s3://mlflow/ --expose-prometheus /prometheus
 
   minio:
@@ -183,6 +223,28 @@ services:
       SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: no
       SPARK_SSL_ENABLED: no
       SPARK_USER: spark
+
+  redis:
+    image: redis:${REDIS_TAG}
+    container_name: ${PROJECT_NAME}-redis
+    hostname: redis
+    restart: unless-stopped
+    stop_grace_period: 10s
+    env_file: .env
+    ports:
+      - 6379:6379
+
+  flower:
+    <<: *airflow-common
+    container_name: ${PROJECT_NAME}-flower
+    hostname: flower
+    command: >
+      celery --broker=redis://redis:6379/0 flower --port=5555 
+    restart: unless-stopped
+    stop_grace_period: 10s
+    env_file: .env
+    ports:
+      - 5555:5555
 
 networks:
   default:
