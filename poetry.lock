@@ -4482,10 +4482,13 @@ files = [
 ]
 
 [package.dependencies]
-numpy = {version = ">=1.15", optional = true, markers = "extra == \"pandas_on_spark\" or extra == \"sql\""}
-pandas = {version = ">=1.0.5", optional = true, markers = "extra == \"pandas_on_spark\" or extra == \"sql\""}
+googleapis-common-protos = {version = ">=1.56.4", optional = true, markers = "extra == \"connect\""}
+grpcio = {version = ">=1.56.0", optional = true, markers = "extra == \"connect\""}
+grpcio-status = {version = ">=1.56.0", optional = true, markers = "extra == \"connect\""}
+numpy = {version = ">=1.15", optional = true, markers = "extra == \"connect\" or extra == \"pandas_on_spark\" or extra == \"sql\""}
+pandas = {version = ">=1.0.5", optional = true, markers = "extra == \"connect\" or extra == \"pandas_on_spark\" or extra == \"sql\""}
 py4j = "0.10.9.7"
-pyarrow = {version = ">=4.0.0", optional = true, markers = "extra == \"pandas_on_spark\" or extra == \"sql\""}
+pyarrow = {version = ">=4.0.0", optional = true, markers = "extra == \"connect\" or extra == \"pandas_on_spark\" or extra == \"sql\""}
 
 [package.extras]
 connect = ["googleapis-common-protos (>=1.56.4)", "grpcio (>=1.56.0)", "grpcio-status (>=1.56.0)", "numpy (>=1.15)", "pandas (>=1.0.5)", "pyarrow (>=4.0.0)"]
@@ -6060,4 +6063,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">3.10,<3.11"
-content-hash = "ecabf9770c1a7c3f054e0c473924a3baeebb1a7f3b145b0f45c7eedebba09f4c"
+content-hash = "b83592897393938de87779a4a23c7eed8122dcd7479bb4497a75d27227e33b1a"

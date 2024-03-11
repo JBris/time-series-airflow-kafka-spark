@@ -11,7 +11,7 @@ def on_send_success(record_metadata):
     print(record_metadata.partition)
     print(record_metadata.offset)
 
-@hydra.main(version_base=None, config_path="../conf", config_name="config")
+@hydra.main(version_base=None, config_path="../../conf", config_name="config")
 def main(config: DictConfig):
     INPUT_DATA_CONFIG = instantiate(config["data"])
 
@@ -36,7 +36,8 @@ def main(config: DictConfig):
             for _, consumer_records in records.items():
                 for consumer_record in consumer_records:
                     record_list.append(consumer_record.value)
-                    
+
+            print(record_list)    
     finally:
         consumer.close()
 

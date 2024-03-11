@@ -37,7 +37,8 @@ services:
       BENTOML_DO_NOT_TRACK: "True"
       BENTOML_CONFIG: $BENTOML_CONFIG
       BENTOML_BUCKET: s3://bento
-      SPARK_MASTER_URL: sc://spark:7077
+      PYSPARK_SUBMIT_ARGS: $PYSPARK_SUBMIT_ARGS
+      SPARK_MASTER_URL: spark://spark:7077
       KAFKA_BOOTSTRAP_HOST: kafka:9092
     ports:
       - 5000:5000
@@ -175,7 +176,7 @@ services:
     environment:
       SPARK_MODE: worker
       SPARK_MASTER_URL: spark://spark:7077
-      SPARK_WORKER_MEMORY: 1G
+      SPARK_WORKER_MEMORY: 2G
       SPARK_WORKER_CORES: 1
       SPARK_RPC_AUTHENTICATION_ENABLED: no
       SPARK_RPC_ENCRYPTION_ENABLED: no
