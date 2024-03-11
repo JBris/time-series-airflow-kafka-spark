@@ -5124,6 +5124,65 @@ files = [
 rich = ">=11.0.0"
 
 [[package]]
+name = "river"
+version = "0.21.0"
+description = "Online machine learning in Python"
+optional = false
+python-versions = ">=3.9,<3.13"
+files = [
+    {file = "river-0.21.0-cp310-cp310-macosx_11_0_universal2.whl", hash = "sha256:064db8a8e8e85dfd317275dec9662b49b6f4011b72f4332fb52db4d14d158276"},
+    {file = "river-0.21.0-cp310-cp310-macosx_12_0_universal2.whl", hash = "sha256:80d027f6c933091f29d462489a416e07e1d4b18cee3cb023e053842f88fdda83"},
+    {file = "river-0.21.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:a0b970985a7741426f715cb5ce44172fca4b4e71ba6a692d50ae8cff03bce5e4"},
+    {file = "river-0.21.0-cp310-cp310-manylinux_2_17_i686.manylinux_2_5_i686.manylinux1_i686.manylinux2014_i686.whl", hash = "sha256:6cd5f6b4a4b9e6f35012f9bb8c368ab48437c00cfe6dfa0caf154abf2d926b57"},
+    {file = "river-0.21.0-cp310-cp310-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:b50e2052e031dbf38bcbd1b4eb89a7f795da6fd989cf59cc6c19bee4c1e9f637"},
+    {file = "river-0.21.0-cp310-cp310-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:dc3fd17213ad436374a884472bb6eabd76df58508352246f46147f5bb2f18837"},
+    {file = "river-0.21.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:eef9101df338154c47aa644f5475c91ee6699a8c4b3187b40df60d1631c61641"},
+    {file = "river-0.21.0-cp310-cp310-musllinux_1_1_aarch64.whl", hash = "sha256:f429c9ed4ee80510dce833132b60dda453f4e477ac43205ebfe1bd7f472ebdaf"},
+    {file = "river-0.21.0-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:974f26da85399f2e65df268229e269ecf432967c1c78d80ff2fb38d0795c219e"},
+    {file = "river-0.21.0-cp310-cp310-win32.whl", hash = "sha256:990b0f7f6f688b997ab26ab86f9cf339681313c7a6f32737e43af60d0a98a800"},
+    {file = "river-0.21.0-cp310-cp310-win_amd64.whl", hash = "sha256:acb4ba872abe7732bec6e4aa2fa15a625e01c43b39f88f625dabb21c27f0a9e8"},
+    {file = "river-0.21.0-cp311-cp311-macosx_11_0_universal2.whl", hash = "sha256:072d254151682c5f04a2a792984a8352f2a53dd31d552d4c1a299e2a7831661d"},
+    {file = "river-0.21.0-cp311-cp311-macosx_12_0_universal2.whl", hash = "sha256:86b0d19e0dc84f6f201941e96e487d12d8651c97469585b832c8a05bc5112201"},
+    {file = "river-0.21.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:efb338521f6486f662e6c7046306567f782dbf4080cbb273cd9d7a5c0695cbcc"},
+    {file = "river-0.21.0-cp311-cp311-manylinux_2_17_i686.manylinux_2_5_i686.manylinux1_i686.manylinux2014_i686.whl", hash = "sha256:73a996370b1009b288cf2fc8e0f9b733888b03639b2cafc5164f01443992f6ab"},
+    {file = "river-0.21.0-cp311-cp311-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:12018d7b190b73eb505d18966e88615498af2b44406f8bcbaecad2e3d9b64596"},
+    {file = "river-0.21.0-cp311-cp311-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:a0233cbf7d7c9f7327d0b6fe434d438b49db9462a44883856dc0231167452b37"},
+    {file = "river-0.21.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:983fcdc38268bb32f9f22d308e45fab79358791218ac7a257cfe148e39710e07"},
+    {file = "river-0.21.0-cp311-cp311-musllinux_1_1_aarch64.whl", hash = "sha256:9597a38cefd7557ae20c90c4f3953fcb8655d0be93365b6c99689c3882df23e8"},
+    {file = "river-0.21.0-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:b6989cedd1d54775d2b4bfc793e25b911684a3f29959769737eb62a2d780f1a4"},
+    {file = "river-0.21.0-cp311-cp311-win32.whl", hash = "sha256:51fa6ad58a5a431de3c422e176fa66e7e38b67fecf4c724dc6a9859b7e5aa7d7"},
+    {file = "river-0.21.0-cp311-cp311-win_amd64.whl", hash = "sha256:9a3953e18b729d6890f51d05f00b7049d0a32aa85da11d0de9a3a19f9584b6a9"},
+    {file = "river-0.21.0-cp312-cp312-macosx_11_0_universal2.whl", hash = "sha256:04db98ad397358dbe886fe5d78a01eb2f37b0f70143281322f230331119899f7"},
+    {file = "river-0.21.0-cp312-cp312-macosx_12_0_universal2.whl", hash = "sha256:ebfdc8147f22648d902e607ef85054c6add8439ca6d5384a4182b716c4590c69"},
+    {file = "river-0.21.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:0f70dff1044502adabc230284a83f38bdbf5af9f85fcdfb8c6f3a438a3b81216"},
+    {file = "river-0.21.0-cp312-cp312-manylinux_2_17_i686.manylinux_2_5_i686.manylinux1_i686.manylinux2014_i686.whl", hash = "sha256:a7f044801d0d80fd636d69de4f5ddddd2e9b7aff38ded496e9ab7b46d25197fa"},
+    {file = "river-0.21.0-cp312-cp312-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:911877f3bd2d3bd735d70123a39c06760f4d959190db2008373950b1a6b2060e"},
+    {file = "river-0.21.0-cp312-cp312-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:21027f337bf7e3faf54a14c8df85e0f6c1c6cdf11d141fa17e3dcb217e7b759b"},
+    {file = "river-0.21.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:7a5c5c7103c06f2c3c2b2a86b16d637288d5485f293131fd712eea6850f8a114"},
+    {file = "river-0.21.0-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:651621b0f2e9b78b738630c347f3aec1fa7f55d9f8cfbbcdb9b618856a1ad51f"},
+    {file = "river-0.21.0-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:34669915a2aed726e5af8a870bed1b2354fb5e033f58606d03851d7f2930a3a2"},
+    {file = "river-0.21.0-cp312-cp312-win32.whl", hash = "sha256:787237353a39043764c104b22d418828d696a543c1d0b0e04cf859715f9bba84"},
+    {file = "river-0.21.0-cp312-cp312-win_amd64.whl", hash = "sha256:731733c5d106a59e0d05c2271a0e5f55ca36285b0d601e8b01693a84db36d84a"},
+    {file = "river-0.21.0-cp39-cp39-macosx_11_0_universal2.whl", hash = "sha256:6239aa2ac44f65567388cce55c8d922922dbb330b94d2005786ed435677a74c9"},
+    {file = "river-0.21.0-cp39-cp39-macosx_12_0_universal2.whl", hash = "sha256:a95471844b1f859f9fccb66880f75ef04f6aac03c6d46128890de58014b6c678"},
+    {file = "river-0.21.0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:bdeb12747e45ccc16cc7e0d45d8054da170ee84a3ab6a7ccd74bb54ba44dc2e0"},
+    {file = "river-0.21.0-cp39-cp39-manylinux_2_17_i686.manylinux_2_5_i686.manylinux1_i686.manylinux2014_i686.whl", hash = "sha256:79480f87d5c320fa490fba660f08b28f93e895f08d860cc6d9979ca366bd0241"},
+    {file = "river-0.21.0-cp39-cp39-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:c7c965c2eec62a0aba3612f5ff7ef959e30ebc8b98c96fa41562c163225e4289"},
+    {file = "river-0.21.0-cp39-cp39-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:87dd973e23f0f7f2a29a5c4d1c73c7f8b8bba1d89300615fdb518eef77cf72ed"},
+    {file = "river-0.21.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:d53dd05f7c9ab8b3de3d764ad875b62576b17f249dd413d3d2012aff8d0aa770"},
+    {file = "river-0.21.0-cp39-cp39-musllinux_1_1_aarch64.whl", hash = "sha256:0b78ae5437f514a312e18188d3a1fa51ae0d4da6d5d135fe0b2c8eb63498c5e7"},
+    {file = "river-0.21.0-cp39-cp39-musllinux_1_1_x86_64.whl", hash = "sha256:215613b90db4117e7a18b15950d955e1ad8aa03930e4182fce95a68c4356ccf1"},
+    {file = "river-0.21.0-cp39-cp39-win32.whl", hash = "sha256:5c8c16933a15a9c0cf5f1528b51a66b507e626370e5f004cabc7ed5a13f3e334"},
+    {file = "river-0.21.0-cp39-cp39-win_amd64.whl", hash = "sha256:700a6b16e36dfcd061727b52bb5f8311ae31f2777e3a6f26b37cab696a4b6948"},
+    {file = "river-0.21.0.tar.gz", hash = "sha256:692923bb8e35005cdbb422b490e2f6bac95cf4cf2fb7d00e1924a697c6a2b506"},
+]
+
+[package.dependencies]
+numpy = ">=1.23.0,<2.0.0"
+pandas = ">=2.1,<3.0"
+scipy = ">=1.8.1,<2.0.0"
+
+[[package]]
 name = "rpds-py"
 version = "0.18.0"
 description = "Python bindings to Rust's persistent data structures (rpds)"
@@ -6363,4 +6422,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">3.10,<3.11"
-content-hash = "c9807319da755f807dde864039745b83dedc5ced75920686defdb31a3fd5bea0"
+content-hash = "ebf4b000f7e58a84d3c97e3e52b054c84ffb27f29e2a7479918974d77c58302c"
