@@ -4,6 +4,8 @@ FROM python:${PYTHON_TAG} as base
 
 WORKDIR /workspace
 
+ENV PYSPARK_HADOOP_VERSION=3
+
 RUN apt-get update \
     && apt-get install -y build-essential libpq-dev openjdk-17-jdk \
     && apt-get clean \
@@ -16,9 +18,8 @@ ENV POETRY_NO_INTERACTION=1 \
     POETRY_VIRTUALENVS_IN_PROJECT=1 \
     POETRY_VIRTUALENVS_CREATE=1 \
     POETRY_CACHE_DIR=/tmp/poetry_cache \
-    PATH="/root/.local/bin:$PATH" \
-    PYSPARK_HADOOP_VERSION=3
-
+    PATH="/root/.local/bin:$PATH" 
+    
 COPY pyproject.toml poetry.lock ./
 
 RUN curl -sSL https://install.python-poetry.org | python3 -\
