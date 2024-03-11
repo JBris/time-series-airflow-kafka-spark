@@ -13,8 +13,8 @@ services:
     volumes:
       - ./conf:/workspace/conf
       - ./data:/workspace/data:r
-      - ./taks:/workspace/taks:rwx
-    command: python -m taks.send_stream
+      - ./aks:/workspace/aks:rwx
+    command: python -m aks.send_stream
     depends_on:
       - kafka
 
@@ -51,7 +51,7 @@ services:
       - ./data:/workspace/data:r
       - ./models:/workspace/models:rw
       - ./outdir:/workspace/outdir
-      - ./taks:/workspace/taks:rwx
+      - ./aks:/workspace/aks:rwx
     command: >
       mlflow server --serve-artifacts --host 0.0.0.0 --port 5000  
       --backend-store-uri "${MLFLOW_BACKEND_STORE_URI}" 

@@ -14,7 +14,7 @@ def main(config: DictConfig):
     spark = (
         SparkSession
         .builder
-        .appName("TAKS")
+        .appName("AKS")
         .config("spark.shuffle.spill.compress", "true")
         .config("spark.shuffle.compress", "true")
         .config("spark.sql.shuffle.partitions", "3000")

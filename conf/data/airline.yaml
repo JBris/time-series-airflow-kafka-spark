@@ -1,4 +1,4 @@
-_target_: taks.DataModels.InputDataModel
+_target_: aks.DataModels.InputDataModel
 name: airline
 base_path: data
 filename: airline.csv
