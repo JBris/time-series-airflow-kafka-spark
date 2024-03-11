@@ -128,7 +128,7 @@ def main(config: DictConfig):
             .foreachBatch(process_batch)
             .start()
         )
-        query.awaitTermination(10)
+        query.awaitTermination(60)
     except:
         pass
 
@@ -138,11 +138,11 @@ def main(config: DictConfig):
     sig = np.repeat([1.0], 3)
     signature = infer_signature(sig, sig)
     
-    model_name = "online_ts"
+    model_name = f"online_{TIME_SERIES_CONFIG.name}"
     online_model = OnlineModel()
 
     import pickle
-    fname = osp.join("outdir", "online_learner.pkl")
+    fname = osp.join("outdir", f"{model_name}.pkl")
     with open(fname, 'wb') as f:
         pickle.dump(model, f)
 
