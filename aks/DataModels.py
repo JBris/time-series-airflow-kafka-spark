@@ -46,5 +46,6 @@ class TimeSeriesModel(BaseModel):
     """
     name: str
     module: str
+    training_time: int
     args: list
     kwargs: dict

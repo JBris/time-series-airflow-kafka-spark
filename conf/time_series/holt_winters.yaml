@@ -1,0 +1,12 @@
+_target_: aks.DataModels.TimeSeriesModel
+name: holt_winters
+module: river.time_series.HoltWinters
+training_time: 60
+args: []
+kwargs: 
+  alpha: 0.3
+  beta: 0.1
+  gamma: 0.6
+  seasonality: 12
+  multiplicative: true
+  

@@ -128,7 +128,7 @@ def main(config: DictConfig):
             .foreachBatch(process_batch)
             .start()
         )
-        query.awaitTermination(60)
+        query.awaitTermination(TIME_SERIES_CONFIG.training_time)
     except:
         pass
 
