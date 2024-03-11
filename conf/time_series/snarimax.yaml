@@ -1,0 +1,12 @@
+_target_: aks.DataModels.TimeSeriesModel
+name: snarimax
+module: river.time_series.SNARIMAX
+args: []
+kwargs: 
+  p: 1
+  d: 0
+  q: 0
+  m: 12
+  sp: 3
+  sq: 6
+  

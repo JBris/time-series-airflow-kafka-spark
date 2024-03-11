@@ -24,4 +24,27 @@ class InputDataModel(BaseModel):
     filename: str
     index_col: str
     delay: float
+    period: str
     
+class MetricsModel(BaseModel):
+    """
+    The metrics data model.
+
+    Args:
+        BaseModel (_type_): 
+            The Base model class.
+    """
+    metrics: dict
+
+class TimeSeriesModel(BaseModel):
+    """
+    The time series data model.
+
+    Args:
+        BaseModel (_type_): 
+            The Base model class.
+    """
+    name: str
+    module: str
+    args: list
+    kwargs: dict

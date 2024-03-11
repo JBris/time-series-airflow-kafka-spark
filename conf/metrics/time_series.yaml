@@ -1,0 +1,4 @@
+_target_: aks.DataModels.MetricsModel
+metrics:
+  mape: river.metrics.MAPE
+  mse: river.metrics.MSE

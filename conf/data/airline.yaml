@@ -4,3 +4,4 @@ base_path: data
 filename: airline.csv
 index_col: Period
 delay: 0.5
+period: M
